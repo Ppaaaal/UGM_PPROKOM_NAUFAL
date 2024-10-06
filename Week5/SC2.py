@@ -1,10 +1,16 @@
-naik = list(range(1, 11))
-turun = list(range(10, 0, -1))
+awal = int(input("Masukan saldo awal\t: "))
+sisa = awal
 
-pola = []
+while True:
+    pengeluaran = int(input("Masukan pengeluaran hari ini (-1 untuk keluar): "))
 
-for i in range(len(naik)):
-    pola.append(naik[i])
-    pola.append(turun[i])
+    if pengeluaran == -1:
+        print("Sisa saldo =", sisa)
+        break
 
-print(' '.join(map(str, pola)))
+    sisa -= pengeluaran
+
+    if sisa < 0:
+        print("Saldo tidak cukup")
+        print("Sisa saldo =", sisa + pengeluaran)
+        break
